@@ -42,10 +42,17 @@ def amazonPrintComp(dataRef, search):
 	prices = [p.get_text().strip() for p in prices]
 	prices = [float(p[1:5]) for p in prices]
 
+	hrefs = bsobj.find_all('a', {"class":"a-link-normal"}, href=True)
+	hrefs = [link['href'].strip() for link in hrefs] 
+
 	eachProduct.append(myProduct)
 	prices.append(myPrice)
 
+<<<<<<< HEAD
+	writer.writerow(hrefs)
+=======
 	writer.writerow(dataRef)
+>>>>>>> b48595c77b6141d9cb52a8a14b5aa37c5632db61
 	writer.writerow(eachProduct)
 	writer.writerow(prices)
 
@@ -77,7 +84,7 @@ def main():
 		else:
 			pass
 
-		sleep(5)
+		sleep(3)
 	print("Completed")
 
 main()
