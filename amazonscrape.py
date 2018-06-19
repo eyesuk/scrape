@@ -51,6 +51,9 @@ def amazonPrintComp(dataRef, search):
 	file.close()
 
 def main():
+    """
+    searches amazon for a user-inputted term and lists the unique product code for each result. plugs product codes and search term into amazonPrintComp
+    """
 
 	headers = {'User-Agent': 'Mozilla/5.0'}
 
