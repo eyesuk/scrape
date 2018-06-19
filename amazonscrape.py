@@ -24,19 +24,15 @@ def amazonPrintComp(dataRef, search):
 
 	myProduct = bsobj.find("span", id="productTitle")
 	myProduct = myProduct.get_text().strip()
-	# print(myShirt)
-	# print(myShirt.get_text().strip())
+
 	myPrice = bsobj.find("span", id="priceblock_ourprice")
 	myPrice = myPrice.get_text()
 	myPrice = float(myPrice[1:5])
-	# print(myPrice)
 
 	car = bsobj.find("div", class_="a-carousel-col a-carousel-center")
-	# print(car)
+
 	eachProduct = car.findAll("div", class_="sponsored-products-truncator-truncate sponsored-products-truncator-line-clamp-4")
 	eachProduct = [p.get_text().strip() for p in eachProduct]
-	# for i in eachProduct:
-	# 	i = filter(lambda ch: ch not in ",", i)
 
 	prices = bsobj.findAll("span", class_="p13n-sc-price")
 	prices = [p.get_text().strip() for p in prices]
@@ -51,6 +47,9 @@ def amazonPrintComp(dataRef, search):
 	file.close()
 
 def main():
+    """
+    searches amazon for a user-inputted term and lists the unique product code for each result. plugs product codes and search term into amazonPrintComp
+    """
 
 	headers = {'User-Agent': 'Mozilla/5.0'}
 
